@@ -34,5 +34,28 @@
         {{ request.user.email }}
     </p>
 
+    <p>
+
+    <a href="{% url 'editar_perfil' %}">
+        Editar mis datos
+    </a>
+</p>
+
+<p>
+    <a href="{% url 'eliminar_cuenta' %}">
+        Eliminar mi cuenta
+    </a>
+</p>
+
+
+<form method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+
+    <button type="submit">
+        Cerrar sesión
+    </button>
+</form>
+
+
 </body>
 </html>

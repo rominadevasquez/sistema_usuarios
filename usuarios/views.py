@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import RegistroUsuarioForm
+from .forms import RegistroUsuarioForm, EditarUsuarioForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -51,3 +51,17 @@ def editar_perfil(request):
             'form': form
         }
     )
+
+
+@login_required
+def eliminar_cuenta(request):
+    if request.method == 'POST':
+        usuario = request.user
+        usuario.delete()
+        return redirect('login')
+
+    return render(
+        request,
+        'usuarios/eliminar_cuenta.html'
+    )
+
