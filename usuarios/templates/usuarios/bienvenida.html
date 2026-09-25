@@ -48,6 +48,17 @@
 </p>
 
 
+<hr>
+
+<h2>Gestión de Personal</h2>
+
+<p>
+    <a href="{% url 'inicio_personal' %}">
+        Administración de Personal
+    </a>
+</p>
+
+
 <form method="POST" action="{% url 'logout' %}">
     {% csrf_token %}
 

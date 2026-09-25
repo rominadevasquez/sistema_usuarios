@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administración de Personal</title>
+</head>
+<body>
+
+    <h1>Administración de Personal</h1>
+
+    <p>
+        Bienvenido {{ request.user.username }}
+    </p>
+
+    <hr>
+
+    <p>
+        <a href="{% url 'lista_empleados' %}">
+            Ver empleados
+        </a>
+    </p>
+
+    <p>
+        <a href="{% url 'crear_empleado' %}">
+            Registrar empleado
+        </a>
+    </p>
+
+    <p>
+        <a href="/admin/personal/cargo/">
+            Administrar cargos
+        </a>
+    </p>
+
+    <p>
+        <a href="/admin/personal/departamento/">
+            Administrar departamentos
+        </a>
+    </p>
+
+    <hr>
+
+    <p>
+        <a href="{% url 'bienvenida' %}">
+            Volver al Home
+        </a>
+    </p>
+
+</body>
+</html>
