@@ -12,4 +12,10 @@ urlpatterns = [
         '',
         include('usuarios.urls')
     ),
+
+     path(
+        'personal/',
+        include('personal.urls')
+    ),
+    
 ]
