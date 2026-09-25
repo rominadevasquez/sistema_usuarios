@@ -240,3 +240,4 @@ def eliminar_empleado(request, empleado_id):
             'empleado': empleado
         }
     )
+
