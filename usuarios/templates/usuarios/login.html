@@ -1,31 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Iniciar sesión</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Iniciar sesión</h1>
+{% block title %}Iniciar sesión — Sistema Usuarios{% endblock %}
 
-    <form method="POST">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit">
-            Ingresar
-        </button>
-    </form>
-
-    <hr>
-
-    <p>
-        ¿No tienes una cuenta?
-        <a href="{% url 'registro' %}">
-            Registrarse
-        </a>
-    </p>
-
-</body>
-</html>
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">Iniciar sesión</h3>
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                    </form>
+                    <hr>
+                    <p class="mb-0">¿No tienes una cuenta? <a href="{% url 'registro' %}">Registrarse</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

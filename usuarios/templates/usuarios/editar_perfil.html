@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Editar perfil</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Editar perfil</h1>
+{% block title %}Editar perfil — Sistema Usuarios{% endblock %}
 
-    <form method="POST">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit">
-            Guardar cambios
-        </button>
-    </form>
-
-    <p>
-        <a href="{% url 'bienvenida' %}">
-            Volver
-        </a>
-    </p>
-
-</body>
-</html>
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Editar perfil</h3>
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <a class="btn btn-link" href="{% url 'bienvenida' %}">Volver</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

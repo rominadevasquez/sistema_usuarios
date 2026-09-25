@@ -1,31 +1,22 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Registro</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>Crear una cuenta</h1>
+{% block title %}Registro — Sistema Usuarios{% endblock %}
 
-    <form method="POST">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit">
-            Registrarse
-        </button>
-    </form>
-
-    <hr>
-
-    <p>
-        ¿Ya tienes una cuenta?
-        <a href="{% url 'login' %}">
-            Iniciar sesión
-        </a>
-    </p>
-
-</body>
-</html>
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title mb-3">Crear una cuenta</h3>
+                    <form method="POST" novalidate>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-success">Registrarse</button>
+                    </form>
+                    <hr>
+                    <p class="mb-0">¿Ya tienes una cuenta? <a href="{% url 'login' %}">Iniciar sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
