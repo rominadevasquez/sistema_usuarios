@@ -1,10 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Administración de Personal</title>
+
+    <link rel="stylesheet"
+          href="{% static 'personal/estilos.css' %}">
 </head>
+
 <body>
+
+<div class="contenedor">
 
     <h1>Administración de Personal</h1>
 
@@ -14,26 +23,32 @@
 
     <hr>
 
+    <h2>Opciones</h2>
+
     <p>
-        <a href="{% url 'lista_empleados' %}">
+        <a class="boton"
+           href="{% url 'lista_empleados' %}">
             Ver empleados
         </a>
     </p>
 
     <p>
-        <a href="{% url 'crear_empleado' %}">
+        <a class="boton"
+           href="{% url 'crear_empleado' %}">
             Registrar empleado
         </a>
     </p>
 
     <p>
-        <a href="/admin/personal/cargo/">
+        <a class="boton"
+           href="/admin/personal/cargo/">
             Administrar cargos
         </a>
     </p>
 
     <p>
-        <a href="/admin/personal/departamento/">
+        <a class="boton"
+           href="/admin/personal/departamento/">
             Administrar departamentos
         </a>
     </p>
@@ -45,6 +60,8 @@
             Volver al Home
         </a>
     </p>
+
+</div>
 
 </body>
 </html>

@@ -1,20 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Empleados</title>
+    <title>Listado de empleados</title>
+
+    <link rel="stylesheet"
+          href="{% static 'personal/estilos.css' %}">
 </head>
+
 <body>
+
+<div class="contenedor">
 
     <h1>Listado de empleados</h1>
 
-    <p>
-        <a href="{% url 'crear_empleado' %}">
-            Registrar nuevo empleado
-        </a>
-    </p>
+    <a class="boton"
+       href="{% url 'crear_empleado' %}">
+        Registrar nuevo empleado
+    </a>
 
-    <table border="1">
+    <table>
 
         <thead>
             <tr>
@@ -29,21 +37,30 @@
 
         <tbody>
 
-            {% for empleado in empleados %}
+        {% for empleado in empleados %}
 
             <tr>
-                <td>{{ empleado.rut }}</td>
+
+                <td>
+                    {{ empleado.rut }}
+                </td>
 
                 <td>
                     {{ empleado.nombre }}
                     {{ empleado.apellido }}
                 </td>
 
-                <td>{{ empleado.cargo }}</td>
+                <td>
+                    {{ empleado.cargo }}
+                </td>
 
-                <td>{{ empleado.departamento }}</td>
+                <td>
+                    {{ empleado.departamento }}
+                </td>
 
-                <td>{{ empleado.estado }}</td>
+                <td>
+                    {{ empleado.estado }}
+                </td>
 
                 <td>
 
@@ -64,9 +81,10 @@
                     </a>
 
                 </td>
+
             </tr>
 
-            {% empty %}
+        {% empty %}
 
             <tr>
                 <td colspan="6">
@@ -74,17 +92,22 @@
                 </td>
             </tr>
 
-            {% endfor %}
+        {% endfor %}
 
         </tbody>
 
     </table>
 
-    <p>
+    <div class="acciones">
+
         <a href="{% url 'inicio_personal' %}">
-            Volver
+            Volver a Administración de Personal
         </a>
-    </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
+

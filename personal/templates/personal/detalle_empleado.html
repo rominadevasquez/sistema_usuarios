@@ -1,18 +1,31 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Detalle del empleado</title>
+
+    <link rel="stylesheet"
+          href="{% static 'personal/estilos.css' %}">
 </head>
+
 <body>
+
+<div class="contenedor">
 
     <h1>Información del empleado</h1>
 
-    <p><strong>RUT:</strong> {{ empleado.rut }}</p>
+    <p>
+        <strong>RUT:</strong>
+        {{ empleado.rut }}
+    </p>
 
     <p>
         <strong>Nombre:</strong>
-        {{ empleado.nombre }} {{ empleado.apellido }}
+        {{ empleado.nombre }}
+        {{ empleado.apellido }}
     </p>
 
     <p>
@@ -47,16 +60,22 @@
 
     <hr>
 
-    <a href="{% url 'editar_empleado' empleado.id %}">
-        Editar
-    </a>
+    <div class="acciones">
 
-    |
+        <a class="boton"
+           href="{% url 'editar_empleado' empleado.id %}">
+            Editar empleado
+        </a>
 
-    <a href="{% url 'lista_empleados' %}">
-        Volver
-    </a>
+        <a href="{% url 'lista_empleados' %}">
+            Volver al listado
+        </a>
+
+    </div>
+
+</div>
 
 </body>
 </html>
+
 

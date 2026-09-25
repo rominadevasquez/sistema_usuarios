@@ -1,39 +1,59 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Eliminar empleado</title>
+
+    <link rel="stylesheet"
+          href="{% static 'personal/estilos.css' %}">
 </head>
+
 <body>
+
+<div class="contenedor">
 
     <h1>Eliminar empleado</h1>
 
-    <p>
-        ¿Está seguro de que desea eliminar al empleado
-        <strong>
-            {{ empleado.nombre }} {{ empleado.apellido }}
-        </strong>?
-    </p>
+    <div class="mensaje-advertencia">
 
-    <p>
-        Esta acción no se puede deshacer.
-    </p>
+        <p>
+            ¿Está seguro de que desea eliminar al empleado
+            <strong>
+                {{ empleado.nombre }}
+                {{ empleado.apellido }}
+            </strong>?
+        </p>
+
+        <p>
+            Esta acción no se puede deshacer.
+        </p>
+
+    </div>
 
     <form method="POST">
 
         {% csrf_token %}
 
-        <button type="submit">
-            Sí, eliminar
+        <button class="boton peligro"
+                type="submit">
+            Sí, eliminar empleado
         </button>
 
     </form>
 
-    <p>
+    <div class="acciones">
+
         <a href="{% url 'lista_empleados' %}">
             Cancelar
         </a>
-    </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
+

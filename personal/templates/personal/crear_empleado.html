@@ -1,10 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Registrar empleado</title>
+
+    <link rel="stylesheet"
+          href="{% static 'personal/estilos.css' %}">
 </head>
+
 <body>
+
+<div class="contenedor">
 
     <h1>Registrar empleado</h1>
 
@@ -14,17 +23,22 @@
 
         {{ form.as_p }}
 
-        <button type="submit">
+        <button class="boton"
+                type="submit">
             Guardar empleado
         </button>
 
     </form>
 
-    <p>
+    <div class="acciones">
+
         <a href="{% url 'lista_empleados' %}">
-            Volver
+            Volver al listado
         </a>
-    </p>
+
+    </div>
+
+</div>
 
 </body>
 </html>
